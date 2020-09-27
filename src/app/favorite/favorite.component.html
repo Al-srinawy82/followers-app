@@ -1,0 +1,13 @@
+<input type="text" [(ngModel)]="title" />
+<br />
+{{ title | titlecase }}
+<br />
+
+<button
+  class="btn"
+  [class.btn-success]="isFavorite"
+  [class.btn-primary]="!isFavorite"
+  (click)="onClick()"
+>
+  Star
+</button>
