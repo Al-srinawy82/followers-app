@@ -1,3 +1,4 @@
+import { SignupFormComponent } from './signup-form/signup-form.component';
 import { SummaryPipe } from './summray.pipe';
 import { AuthorsService } from './authors.service';
 import { CoursesSevice } from './courses.service';
@@ -10,7 +11,7 @@ import { AppComponent } from './app.component';
 import { CourseComponent } from './course/course.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { PiccoursesComponent } from './piccourses/piccourses.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PipesComponent } from './pipes/pipes.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TitleCasePipe } from './title-case.pipe';
@@ -29,6 +30,9 @@ import { CustomDirectiveComponent } from './custom-directive/custom-directive.co
 import { ZippyComponent } from './zippy/zippy.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
+import { NewArrayCourseFormComponent } from './new-array-course-form/new-array-course-form.component';
+import { FormBuilderComponent } from './form-builder/form-builder.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -54,8 +58,18 @@ import { NewCourseFormComponent } from './new-course-form/new-course-form.compon
     ZippyComponent,
     ContactFormComponent,
     NewCourseFormComponent,
+    SignupFormComponent,
+    NewArrayCourseFormComponent,
+    FormBuilderComponent,
+    ChangePasswordComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, FontAwesomeModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    FontAwesomeModule,
+    ReactiveFormsModule,
+  ],
   providers: [CoursesSevice, AuthorsService],
   bootstrap: [AppComponent],
 })

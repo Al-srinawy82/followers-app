@@ -1,0 +1,55 @@
+<form [formGroup]="form" (ngSubmit)="login()">
+  <div *ngIf="form.errors" class="alert alert-danger">
+    The UserName Or Pssword Invalid
+  </div>
+  <div formGroupName="account">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        formControlName="username"
+        id="username"
+        type="text"
+        class="form-control"
+      />
+      <div *ngIf="username.pending">Checking For Unqiueness ...</div>
+      <div
+        *ngIf="username.touched && username.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="username.errors.required">User Name Is Required</div>
+        <div *ngIf="username.errors.cannotContainSpace">
+          User Name Cannot Contain Space
+        </div>
+        <div *ngIf="username.errors.ShouldBeUnique">
+          User Name Should Be Unique
+        </div>
+        <div *ngIf="username.errors.minlength">
+          User Name Should be Minimum
+          {{ username.errors.minlength.requiredLength }}characters
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        formControlName="password"
+        id="password"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="password.touched && password.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="password.errors.required">Password Is Required</div>
+        <div *ngIf="password.errors.minlength">
+          Password Should be Minimum
+          {{ password.errors.requiredLength }} Characters
+        </div>
+      </div>
+    </div>
+  </div>
+  <new-array-course-form></new-array-course-form>
+  <br />
+  <button class="btn btn-primary" type="submit">Sign Up</button>
+</form>
